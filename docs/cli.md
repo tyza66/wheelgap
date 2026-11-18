@@ -165,8 +165,8 @@ since PyPI's project of that name may not be yours. If the previous release coul
 comparison didn't run; both notes show even with `-q`, so a gate that didn't compare never passes silently.
 ### `--deps` {#deps}
 
-For package names on the command line, requirements files, and dependencies declared in
-`pyproject.toml` or a script's `# /// script` block, also check what they install.
+For package names on the command line, requirements files, the `pip:` list of a conda `environment.yml`, and
+dependencies declared in `pyproject.toml` or a script's `# /// script` block, also check what they install.
 For a project file, this includes any extras you select with `--extra` or `--all-extras`. wheelgap resolves the
 tree for each target from PyPI's metadata: for each requirement, the newest release that meets every constraint on it,
 supports the target's Python and isn't yanked (a yanked release only for an `==` pin), following markers and extras as

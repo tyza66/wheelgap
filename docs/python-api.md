@@ -87,7 +87,8 @@ Check every package a lockfile (or a project directory) installs on at least one
 target's Python may be missing wheels for it, so its PyPI packages are also looked up on the index (keeping the
 lock's files if a lookup fails).
 
-- `deps=True` resolves the dependency tree for requirements files, `pyproject.toml` and script (`# /// script`) inputs from
+- `deps=True` resolves the dependency tree for requirements files, a conda `environment.yml` (its `pip:` list),
+  `pyproject.toml` and script (`# /// script`) inputs from
   PyPI metadata for each target, as `--deps` does on the command line. Each package in the tree gets its own
   `Result`, and on its gap targets `via` gives the path from your input and `direct` the direct dependencies behind
   it. A `pyproject.toml` (or a project directory with only one) is accepted and read from `[project] dependencies`
