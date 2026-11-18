@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import pytest
 from test_cli import run
+from test_deps import index  # noqa: F401  (the fake PyPI --deps resolves against)
 
+from wheelgap.cli import main
 from wheelgap.sources import (
     SourceError,
     _BlockYaml,
@@ -296,3 +298,13 @@ def test_conda_env_export_file(tmp_path):
 )
 def test_conda_package_name(spec, name):
     assert _conda_package_name(spec) == name
+
+
+def test_deps_reads_the_pip_list_of_an_environment_yml(index, capsys, tmp_path):  # noqa: F811
+    """#524: --deps applies to an environment.yml, and the pip: packages resolve into their tree."""
+    env = tmp_path / "environment.yml"
+    env.write_text("dependencies:\n  - pip:\n    - app\n", encoding="utf-8")
+    code = main([str(env), "--deps", "-p", "3.14", "-t", "win-arm64", "--no-cache"])
+    out = capsys.readouterr().out
+    assert code == 1  # crypt, which app pulls in, has no win-arm64 wheel
+    assert "crypt (via app)" in out

@@ -1,7 +1,7 @@
 # Inputs
 
-wheelgap takes one or more inputs: lockfiles, requirements files, a `pyproject.toml`, a script with a `# /// script`
-block, directories, or package names.
+wheelgap takes one or more inputs: lockfiles, requirements files, a conda `environment.yml`, a pip installation
+report, a `pyproject.toml`, a script with a `# /// script` block, directories, or package names.
 With no input it reads the current directory.
 
 ```bash

@@ -489,8 +489,9 @@ def _check_lockfile(
     if deps:
         if not (source.specs or source.pyproject_extras is not None):
             raise SourceError(
-                "--deps applies to package names on the command line, requirements files, pyproject.toml or a "
-                "script's # /// script block; a lockfile already lists what it installs"
+                "--deps applies to package names on the command line, requirements files, a conda "
+                "environment.yml, pyproject.toml or a script's # /// script block; a lockfile already lists what "
+                "it installs"
             )
         if offline:
             raise SourceError(

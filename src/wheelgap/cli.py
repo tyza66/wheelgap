@@ -282,7 +282,8 @@ def make_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--deps",
         action="store_true",
-        help="for package names, requirements files, pyproject.toml or a script's # /// script block, also check "
+        help="for package names, requirements files, a conda environment.yml, pyproject.toml or a script's "
+        "# /// script block, also check "
         "what they install, resolved per target from PyPI's metadata (looks each dependency up on pypi.org; a "
         "lockfile is exact)",
     )
@@ -2018,8 +2019,9 @@ def _main(argv: list[str], project: Path | None = None) -> int:
             dependency_sources = [s for s in sources if s.specs or s.pyproject_extras is not None]
             if not dependency_sources:
                 raise SourceError(
-                    "--deps applies to package names on the command line, requirements files, pyproject.toml or a "
-                    "script's # /// script block; a lockfile already lists what it installs"
+                    "--deps applies to package names on the command line, requirements files, a conda "
+                    "environment.yml, pyproject.toml or a script's # /// script block; a lockfile already lists "
+                    "what it installs"
                 )
             if offline:
                 raise SourceError(
