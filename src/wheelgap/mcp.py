@@ -236,8 +236,8 @@ TOOLS: list[dict[str, Any]] = [
             "dependencies argument). "
             "Packages from git, paths, URLs or private indexes are listed under "
             "'skipped': they were NOT checked. 'notes' says when an answer may be incomplete. Requirements files are "
-            "looked up on the index; with dependencies: true, requirements files, pyproject.toml and a script's "
-            "# /// script block (PEP 723) are resolved "
+            "looked up on the index; with dependencies: true, requirements files, a conda environment.yml, "
+            "pyproject.toml and a script's # /// script block (PEP 723) are resolved "
             "per target and all dependencies checked, as --deps does, and each gap gets via (the path to it from "
             "a direct dependency on each gap target) and direct; refused where --deps refuses: lockfiles, offline "
             "and another index. "
@@ -277,8 +277,8 @@ TOOLS: list[dict[str, Any]] = [
                 },
                 "dependencies": {
                     "type": "boolean",
-                    "description": "Also resolve transitive dependencies of requirements files, pyproject.toml and a "
-                    "script's # /// script block, "
+                    "description": "Also resolve transitive dependencies of requirements files, a conda "
+                    "environment.yml, pyproject.toml and a script's # /// script block, "
                     "as --deps does. Default: false. Refused for lockfiles, offline and another index.",
                 },
             },

@@ -417,14 +417,14 @@ def check_lockfile(
     looked up on the index (keeping the lock's files if a lookup fails).
     Requirements ranges resolve separately for each target Python major/minor. Distinct resolutions return
     separate Results with their own version and eligible files; targets using another resolution are NOT_NEEDED.
-    deps=True resolves the dependency tree for requirements files, pyproject.toml and script (PEP 723
-    `# /// script`) inputs from PyPI metadata, as --deps does: one Result per package in the tree, with `via` giving
-    each gap target's path from a direct dependency. A tree that can't be resolved raises DepsError (a
-    SourceError). With deps=True, pyproject.toml (and a project directory containing only one) and a script are
-    accepted; lockfile inputs (uv.lock, poetry.lock, ...) and offline=True are refused. Requirements that aren't
-    index packages (-e ., local paths, URLs) can't be resolved from PyPI: with deps=True they raise SourceError,
-    unless the file is compiled with hashes (it already pins what they install) or allow_skipped=True is passed to
-    check the rest. allow_skipped does nothing without deps=True.
+    deps=True resolves the dependency tree for requirements files, a conda environment.yml (its pip: list),
+    pyproject.toml and script (PEP 723 `# /// script`) inputs from PyPI metadata, as --deps does: one Result per package
+    in the tree, with `via` giving each gap target's path from a direct dependency. A tree that can't be resolved raises
+    DepsError (a SourceError). With deps=True, pyproject.toml (and a project directory containing only one) and a script
+    are accepted; lockfile inputs (uv.lock, poetry.lock, ...) and offline=True are refused. Requirements that aren't
+    index packages (-e ., local paths, URLs) can't be resolved from PyPI: with deps=True they raise SourceError, unless
+    the file is compiled with hashes (it already pins what they install) or allow_skipped=True is passed to check the
+    rest. allow_skipped does nothing without deps=True.
     With offline=True, only locked files are used: inputs needing an index lookup raise SourceError, and the
     other-Python recheck is skipped. Locked files may therefore omit wheels for those Python versions.
     online=True and offline=True cannot be combined.

@@ -283,9 +283,8 @@ def make_parser() -> argparse.ArgumentParser:
         "--deps",
         action="store_true",
         help="for package names, requirements files, a conda environment.yml, pyproject.toml or a script's "
-        "# /// script block, also check "
-        "what they install, resolved per target from PyPI's metadata (looks each dependency up on pypi.org; a "
-        "lockfile is exact)",
+        "# /// script block, also check what they install, resolved per target from PyPI's metadata (looks each "
+        "dependency up on pypi.org; a lockfile is exact)",
     )
     p.add_argument(
         "--suggest",
