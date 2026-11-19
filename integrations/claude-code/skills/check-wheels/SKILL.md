@@ -30,7 +30,7 @@ uvx wheelgap@latest -p 3.13 -t linux-aarch64,musl-aarch64 --json
 
 ## When an install already failed
 
-If the user has a failed `pip install` or uv log, pass it to `uvx wheelgap@latest --from-log install.log -p <Python> -t <platform>` (or `-` for stdin): it finds the packages that failed to build and checks each as `--explain --suggest` does: why no wheel fits, and the release that has one.
+If the user has a failed pip, uv, Poetry or PDM install log, pass it to `uvx wheelgap@latest --from-log install.log -p <Python> -t <platform>` (or `-` for stdin): it finds the packages that failed to build and checks each as `--explain --suggest` does: why no wheel fits, and the release that has one.
 
 ## Read the result
 
