@@ -78,6 +78,7 @@ nav:
       - mitmproxy: case-studies/mitmproxy.md
       - FastAPI: case-studies/fastapi.md
       - Aider: case-studies/aider.md
+      - pydantic: case-studies/pydantic.md
   - Integrations:
       - Python API: python-api.md
       - MCP server: mcp.md
